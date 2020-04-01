@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body></body>
+
+  <script>
+    /*    mount -t cifs -o username="JongWong",password="wwwwww" //192.168.0.1/share  /share  */
+    var scheme = document.location.protocol == "https:" ? "wss" : "ws";
+    var port = document.location.port ? ":" + document.location.port : "";
+    var wsURL = "ws://192.168.0.200:8080/ws";
+    console.log(wsURL);
+    socket = new WebSocket(wsURL);
+    try {
+      socket.onopen = function (msg) {};
+
+      socket.onmessage = function (msg) {
+        console.log(msg.data);
+      };
+
+      socket.onclose = function (msg) {};
+    } catch (ex) {
+      log(ex);
+    }
+  </script>
+</html>
